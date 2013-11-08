@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:clickable="true">
+
+    <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/leftArrow"
+            android:src="@drawable/arrow_left" android:scaleType="fitXY"
+            android:background="@android:color/transparent" android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" android:clickable="true" android:focusable="false"
+            android:longClickable="true" android:onClick="arrowClick" android:focusableInTouchMode="true"/>
+    <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:id="@+id/upArrow"
+                 android:src="@drawable/arrow_up" android:scaleType="fitXY"
+                 android:background="@android:color/transparent"
+                 android:layout_toRightOf="@+id/leftArrow" android:layout_alignParentTop="true"
+                 android:clickable="true" android:focusable="false" android:longClickable="true"
+                 android:onClick="arrowClick"/>
+    <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:id="@+id/rightArrow"
+                 android:src="@drawable/arrow_right" android:scaleType="fitXY"
+                 android:background="@android:color/transparent"
+                 android:layout_toRightOf="@+id/upArrow" android:layout_alignTop="@+id/leftArrow"
+                 android:clickable="true" android:focusable="false" android:longClickable="false"
+                 android:onClick="arrowClick"/>
+    <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:id="@+id/downArrow"
+                 android:src="@drawable/arrow_down" android:scaleType="fitXY"
+                 android:background="@android:color/transparent"
+                 android:clickable="true" android:focusable="false"
+                 android:longClickable="true" android:onClick="arrowClick" android:layout_alignRight="@+id/upArrow"
+                 android:layout_alignParentTop="true" android:layout_marginTop="175dp"
+                 android:focusableInTouchMode="false"/>
+    <SeekBar
+        android:max="20"
+        android:progress="0"
+        android:secondaryProgress="0"
+        android:progressDrawable="@drawable/seekbar_progress"
+        android:thumb="@drawable/seek_thumb"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar"
+        android:layout_alignParentRight="true" android:layout_alignParentTop="true"
+        android:layout_marginTop="190dp" android:layout_alignParentLeft="true" android:layout_marginLeft="260dp"
+        />
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fire"
+            android:id="@+id/button" android:layout_alignRight="@+id/seekBar"
+            android:layout_alignBottom="@+id/downArrow" android:layout_alignLeft="@+id/seekBar"
+            android:onClick="fireClicked"/>
+    <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/angleBar"
+            android:layout_alignParentLeft="true" android:layout_marginLeft="270dp"
+            android:layout_alignTop="@+id/upArrow" android:layout_alignRight="@+id/seekBar"
+            android:layout_marginTop="50dp" android:max="190" android:progress="95"
+            style="@android:style/Widget.SeekBar" android:clickable="false"/>
+
+</RelativeLayout>

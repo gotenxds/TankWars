@@ -1,0 +1,6 @@
+
+*.iml
+/.idea
+/proguard_logs
+/bin
+/out
