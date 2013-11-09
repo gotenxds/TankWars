@@ -13,26 +13,33 @@
             android:src="@drawable/arrow_left" android:scaleType="fitXY"
             android:background="@android:color/transparent" android:layout_alignParentLeft="true"
             android:layout_centerVertical="true" android:clickable="true" android:focusable="false"
-            android:longClickable="true" android:onClick="arrowClick" android:focusableInTouchMode="true"/>
+            android:longClickable="true" android:onClick="arrowClick" android:focusableInTouchMode="true"
+            android:contentDescription="leftArrow"/>
+
     <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:id="@+id/upArrow"
                  android:src="@drawable/arrow_up" android:scaleType="fitXY"
                  android:background="@android:color/transparent"
                  android:layout_toRightOf="@+id/leftArrow" android:layout_alignParentTop="true"
                  android:clickable="true" android:focusable="false" android:longClickable="true"
-                 android:onClick="arrowClick"/>
+                 android:onClick="arrowClick"
+                 android:contentDescription="upArrow"/>
+
     <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:id="@+id/rightArrow"
                  android:src="@drawable/arrow_right" android:scaleType="fitXY"
                  android:background="@android:color/transparent"
                  android:layout_toRightOf="@+id/upArrow" android:layout_alignTop="@+id/leftArrow"
                  android:clickable="true" android:focusable="false" android:longClickable="false"
-                 android:onClick="arrowClick"/>
+                 android:onClick="arrowClick"
+                 android:contentDescription="rightArrow"/>
+
     <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:id="@+id/downArrow"
                  android:src="@drawable/arrow_down" android:scaleType="fitXY"
                  android:background="@android:color/transparent"
                  android:clickable="true" android:focusable="false"
                  android:longClickable="true" android:onClick="arrowClick" android:layout_alignRight="@+id/upArrow"
                  android:layout_alignParentTop="true" android:layout_marginTop="175dp"
-                 android:focusableInTouchMode="false"/>
+                 android:focusableInTouchMode="false"
+                 android:contentDescription="arrowDown"/>
     <SeekBar
         android:max="20"
         android:progress="0"
