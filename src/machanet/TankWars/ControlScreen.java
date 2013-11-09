@@ -17,6 +17,7 @@ import machanet.TankWars.blueToothUtils.BlueToothDevicesInRangeProvider;
 import machanet.TankWars.blueToothUtils.BlueToothInitializer;
 import machanet.TankWars.blueToothUtils.ConnectorCollectionListener;
 import machanet.TankWars.components.ExitAlertDialogFactory;
+import machanet.TankWars.serverConnectivity.ServerCommunicator;
 
 public class ControlScreen extends Activity
 {
@@ -24,6 +25,7 @@ public class ControlScreen extends Activity
     private final BlueToothInitializer blueToothInitializer = BlueToothInitializer.create();
     private final BlueToothDevicesInRangeProvider blueToothDevicesInRangeProvider = BlueToothDevicesInRangeProvider.create();
     private final ArduinoController arduinoController = ArduinoControllerFactory.createFrom(bluetoothSocketSupplier);
+    private ServerCommunicator serverCommunicator;
     private ImageButton upButton;
     private ImageButton rightButton;
     private ImageButton downButton;
@@ -36,12 +38,24 @@ public class ControlScreen extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.controlScreen);
+        setContentView(R.layout.controlscreen);
 
         initializeUIComponents();
-        enableOrExit();
+        enableBluetoothOrExit();
         registerBlueToothReceiver();
+        initializeServerConnectivity();
         initializeAngleBar();
+    }
+
+    private void initializeServerConnectivity()
+    {
+        Bundle extras = getIntent().getExtras();
+        Boolean isServerGame = extras.getBoolean("serverGame");
+
+        if (isServerGame)
+        {
+            serverCommunicator = ServerCommunicator.createFrom(extras.getString("ip"), extras.getInt("port"));
+        }
     }
 
     private void initializeUIComponents()
@@ -59,7 +73,7 @@ public class ControlScreen extends Activity
         angleBar.setOnSeekBarChangeListener(new RangeSeekBarListener(arduinoController));
     }
 
-    private void enableOrExit()
+    private void enableBluetoothOrExit()
     {
         boolean isBlueToothEnabled = blueToothInitializer.enableBlueTooth();
 

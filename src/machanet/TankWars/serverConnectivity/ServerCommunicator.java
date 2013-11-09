@@ -39,4 +39,9 @@ public class ServerCommunicator
 
         throw new TcpConnectivityException("Unable to connect to server.");
     }
+
+    public static ServerCommunicator createFrom(String ip, int port)
+    {
+        return new ServerCommunicator(new TcpSocketFactory(), new MessageBuilder(), ip, port);
+    }
 }
