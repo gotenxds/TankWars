@@ -26,6 +26,7 @@ public class ControlScreen extends Activity
     private final BlueToothDevicesInRangeProvider blueToothDevicesInRangeProvider = BlueToothDevicesInRangeProvider.create();
     private final ArduinoController arduinoController = ArduinoControllerFactory.createFrom(bluetoothSocketSupplier);
     private ServerCommunicator serverCommunicator;
+
     private ImageButton upButton;
     private ImageButton rightButton;
     private ImageButton downButton;
@@ -110,9 +111,12 @@ public class ControlScreen extends Activity
     }
 
     private void registerBlueToothReceiver()
-   {
+    {
+        ConnectorCollectionListener controllerListener = ConnectorCollectionListener.createFrom(bluetoothSocketSupplier);
+
         registerReceiver(blueToothDevicesInRangeProvider, new IntentFilter(BluetoothDevice.ACTION_FOUND));
-        blueToothDevicesInRangeProvider.getBluetoothDevices().addCollectionListener(ConnectorCollectionListener.createFrom(bluetoothSocketSupplier));
+        blueToothDevicesInRangeProvider.getBluetoothDevices().addCollectionListener(controllerListener);
+
         BluetoothAdapter.getDefaultAdapter().startDiscovery();
     }
 

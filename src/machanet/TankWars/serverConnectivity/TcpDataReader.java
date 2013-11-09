@@ -47,4 +47,9 @@ class TcpDataReader implements DataReader
             return Optional.absent();
         }
     }
+
+    public static TcpDataReader createFrom(Socket socket)
+    {
+        return new TcpDataReader(socket);
+    }
 }

@@ -27,7 +27,6 @@ public class RangeSeekBarListener implements SeekBar.OnSeekBarChangeListener
     @Override
     public void onStopTrackingTouch(SeekBar seekBar)
     {
-        serverCommunicatorFactory.createFrom("192.168.1.100", 6000).turnEnd();
         arduinoController.adjustAim(seekBar.getProgress());
     }
 }

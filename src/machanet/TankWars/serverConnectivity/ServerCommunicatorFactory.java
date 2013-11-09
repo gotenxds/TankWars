@@ -6,6 +6,6 @@ public class ServerCommunicatorFactory
 {
    public ServerCommunicator createFrom(String ip, int port)
    {
-       return new ServerCommunicator(new TcpSocketFactory(), new MessageBuilder(), ip, port);
+       return new ServerCommunicator(new TcpSocketFactory(), new MessageBuilder(), ip, port, tcpDataReader);
    }
 }

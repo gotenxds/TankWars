@@ -8,7 +8,7 @@ import machanet.TankWars.arduinoUtils.MutableSupplier;
 
 import java.io.IOException;
 
-public class BlueToothConnector
+class BlueToothConnector
 {
     private final BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     private MutableSupplier<BluetoothSocket> bluetoothSocketSupplier;

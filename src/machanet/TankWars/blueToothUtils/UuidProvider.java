@@ -2,7 +2,7 @@ package machanet.TankWars.blueToothUtils;
 
 import java.util.UUID;
 
-public class UuidProvider
+class UuidProvider
 {
     public static UUID create()
     {
